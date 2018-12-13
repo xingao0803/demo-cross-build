@@ -1,6 +1,7 @@
+#include<stdio.h>
 #include "hello.h"
 
 void hello(){
-	system("echo \"Hello World!\n\"");
+	printf("Hello World!");
 }
 
