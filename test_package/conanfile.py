@@ -12,7 +12,7 @@ class HelloTestConan(ConanFile):
         if self.settings.arch == "x86_64":
             self.run("g++ ../../example.cpp @conanbuildinfo.args -o example")
         else :
-            self.run("g++ ../../example.cpp m32 @conanbuildinfo.args -o example")
+            self.run("g++ ../../example.cpp -m32 @conanbuildinfo.args -o example")
 
     def imports(self):
         self.copy("*.dll", dst="bin", src="bin")
