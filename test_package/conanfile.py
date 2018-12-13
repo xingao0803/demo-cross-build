@@ -20,7 +20,7 @@ class HelloTestConan(ConanFile):
         self.copy('*.so*', dst='bin', src='lib')
         self.copy('*.a', dst='bin', src='lib')
 
-    def test(self)
+    def test(self):
         os.chdir("bin")
         self.run("..%sexample" % os.sep)
         self.run("file ..%sexample" % os.sep)
