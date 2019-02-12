@@ -9,7 +9,7 @@ class HelloTestConan(ConanFile):
     requires = "Hello/1.0@jfrog/stable"
 
     def build(self):
-        if self.settings.arch == "x86_64" or self.settings.os == "Macos":
+        if self.settings.arch == "x86_64":
             self.run("g++ ../../example.cpp @conanbuildinfo.args -o example")
         else :
             self.run("g++ ../../example.cpp -m32 @conanbuildinfo.args -o example")
@@ -23,7 +23,4 @@ class HelloTestConan(ConanFile):
     def test(self):
         os.chdir("bin")
         self.run("..%sexample" % os.sep)
-        if self.settings.os == "Macos" and self.settings.arch == "x86":
-            print("..%sexample: ELF 32-bit LSB executable" % os.sep)
-        else :
-            self.run("file ..%sexample" % os.sep)
+        self.run("file ..%sexample" % os.sep)
