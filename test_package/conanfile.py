@@ -23,7 +23,7 @@ class HelloTestConan(ConanFile):
     def test(self):
         os.chdir("bin")
         self.run("..%sexample" % os.sep)
-        if self.settings.os == "Macos" and self.settings.arch == "x86"
+        if self.settings.os == "Macos" and self.settings.arch == "x86":
             print("..%sexample: ELF 32-bit LSB executable" % os.sep)
         else :
             self.run("file ..%sexample" % os.sep)
