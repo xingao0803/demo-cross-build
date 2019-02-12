@@ -9,7 +9,7 @@ class HelloTestConan(ConanFile):
     requires = "Hello/1.0@jfrog/stable"
 
     def build(self):
-        if self.settings.arch == "x86_64" or self.settigns.os == "Macos":
+        if self.settings.arch == "x86_64" or self.settings.os == "Macos":
             self.run("g++ ../../example.cpp @conanbuildinfo.args -o example")
         else :
             self.run("g++ ../../example.cpp -m32 @conanbuildinfo.args -o example")
